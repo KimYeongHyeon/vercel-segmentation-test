@@ -70,6 +70,29 @@ python export_onnx.py \
 
 ## Vercel 무료 정적 배포 후보
 
+### 업로드와 브라우저 실행 조건
+
+Vercel에 파일을 올릴 수 있다는 것과 브라우저에서 모델을 실행할 수 있다는 것은
+서로 다른 조건입니다. 모델을 선택하거나 변환할 때 다음 항목을 모두 확인해야 합니다.
+
+- **정적 파일 업로드:** Vercel Hobby의 CLI source upload 한도는 100 MB입니다.
+  자세한 현재 한도는 [Vercel 공식 문서](https://vercel.com/docs/limits)를 확인합니다.
+- **모델 형식:** PyTorch의 `.pt`/`.pth` 파일은 브라우저에서 직접 실행할 수 없습니다.
+  이 앱에서는 모델을 ONNX로 변환한 뒤 ONNX Runtime Web으로 실행합니다.
+- **연산자 지원:** ONNX Runtime Web의 WASM backend는 범용성이 높지만,
+  WebGPU와 WebNN은 지원하는 연산자가 제한될 수 있습니다.
+  [ONNX Runtime Web 문서](https://onnxruntime.ai/docs/tutorials/web/)에서
+  실행 backend와 브라우저 지원 범위를 확인합니다.
+- **브라우저 메모리:** 모델 파일 외에도 중간 activation과 입출력 tensor가
+  메모리를 사용합니다. 파일을 다운로드할 수 있더라도 모바일 브라우저에서는
+  느려지거나 메모리 부족으로 종료될 수 있습니다.
+  [대형 모델 제약 문서](https://onnxruntime.ai/docs/tutorials/web/large-models.html)를
+  함께 확인합니다.
+- **전처리 계약:** 입력 크기, 채널 수, normalization, tensor 이름과 출력 shape가
+  웹 애플리케이션의 전처리·후처리 코드와 정확히 일치해야 합니다.
+- **라이선스:** 모델 코드와 가중치가 Public 저장소 및 웹 배포에서 재배포를
+  허용하는지 확인하고, 필요한 저작권 고지와 attribution을 포함해야 합니다.
+
 아래 크기는 원본 또는 공식 배포 파일 기준입니다. 속도는 기기·입력 크기·브라우저
 backend의 영향을 크게 받으므로, 확인하지 않은 모델에는 속도를 단정하지 않습니다.
 
