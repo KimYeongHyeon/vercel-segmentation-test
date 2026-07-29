@@ -19,7 +19,7 @@
 MediaPipe와 LRASPP는 목적과 출력이 달라 정확도 비교 대상으로 사용하지 않습니다.
 이 표의 시간은 배포 feasibility를 판단하기 위한 runtime 기록입니다.
 
-Production URL: https://segmentation-static.vercel.app
+Historical production URL (removed on 2026-07-29): https://segmentation-static.vercel.app
 
 - 모델 준비: 버튼 click부터 ONNX session 생성 완료 UI까지의 wall-clock
 - 첫/Warm 추론: 앱에 표시된 `session.run()` 시간. 이미지 전처리와 canvas

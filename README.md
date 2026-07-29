@@ -3,7 +3,7 @@
 학생이 직접 학습한 segmentation 모델을 ONNX로 내보내 브라우저에서 시험하는
 완전 정적 실습 앱입니다.
 
-- Production: https://segmentation-static.vercel.app
+- Deployment status: offline (Vercel project removed on 2026-07-29)
 - Runtime: ONNX Runtime Web + WebAssembly SIMD
 - Server inference: 없음
 - 학생 모델과 테스트 이미지 업로드: 없음. 브라우저 메모리에서만 처리
