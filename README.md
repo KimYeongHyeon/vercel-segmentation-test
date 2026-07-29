@@ -8,6 +8,8 @@
 - Server inference: 없음
 - 학생 모델과 테스트 이미지 업로드: 없음. 브라우저 메모리에서만 처리
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKimYeongHyeon%2Fvercel-segmentation-test)
+
 ## 교육 트랙
 
 ### 1. 일반영상 다중 클래스
