@@ -1,0 +1,8 @@
+.vercel
+.venv/
+__pycache__/
+*.py[cod]
+checkpoints/
+exported/
+dataset/
+Task04_Hippocampus/

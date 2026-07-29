@@ -1,0 +1,10 @@
+{
+  "name": "vercel-segmentation-test",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Static Vercel testbed for trainable semantic and medical segmentation ONNX models",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "check": "node --check app.js && PYTHONPYCACHEPREFIX=/tmp/segmentation-static-pycache python3 -m py_compile training/models.py training/train.py training/export_onnx.py training/prepare_msd_hippocampus.py"
+  }
+}
